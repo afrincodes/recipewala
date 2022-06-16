@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeWala</title>
+    <link rel="icon" href="../static/images/icon.png" type="image/icon type">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/table.css">
+    <script src="https://kit.fontawesome.com/bcdac9a129.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-about">
+        <nav class="navbar">
+          <h2 class="dashboard-h">RecipeWala</h2>
+            <div class="nav">
+            <ul>
+              <li><a href="/chef_dashboard"><i class="fa-solid fa-grid-horizontal"></i></a></li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn" name="name">{{session['name']}} <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                      <a href="/chef_profile">Profile</a>
+                      <a href="/chef_logout">Logout</a>
+                    </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+    <div class="left-profile">
+      <ul>
+          <li><a href="/chef_dashboard"><i class="fas fa-chart-line"></i>  DASHBOARD</a></li>
+          <li><a href="/chef_profile"><i class="fas fa-user-circle"></i>  PROFILE</a></li>
+          <li><a href="/add_recipe"><i class="fas fa-chevron-circle-down"></i>  ADD RECIPE</a></li>
+          <li><a href="/chef_message"><i class="fas fa-comments-dollar"></i>  MESSAGE</a></li>
+          <li><a href="/chef_logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a></li>
+      </ul>
+  </div>
+
+  <div class="right-profile" style="padding-left: 300px;">
+    {% for r in rec %}
+    <form action="/chef_message_reply?message_id={{request.args.get('message_id')}}" method="POST" enctype="multipart/form-data">
+      <h2 style="margin-bottom: 2rem; ">Message</h2>
+      <p style="margin-bottom: 1rem;">{{r[1]}}</p>
+      <div><textarea placeholder="Enter Message...." name="reply" id="" cols="30" rows="10">{{r[2]}}</textarea></div>
+      <input type="submit" value="Reply" class="btn-about" style="margin-left: 0; background-color: aliceblue; color: black; border-color: black;">
+    </form>
+    {% endfor %}
+</div>
+
+
+</body>
+</html>

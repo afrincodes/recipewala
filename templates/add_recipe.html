@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeWala</title>
+    <link rel="icon" href="../static/images/icon.png" type="image/icon type" style="border-radius: 50%;">
+    <link rel="stylesheet" href="../static/css/add_recipe.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://kit.fontawesome.com/bcdac9a129.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+    <div class="container-about">
+        <nav class="navbar">
+          <h2 class="dashboard-h">RecipeWala</h2>
+            <div class="nav">
+            <ul>
+              <li><a href="/chef_dashboard"><i class="fa-solid fa-grid-horizontal"></i></a></li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn" name="name">{{session['name']}} <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                      <a href="/chef_profile">Profile</a>
+                      <a href="/chef_logout">Logout</a>
+                    </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <h5 style="color: #070707; position: fixed; top: 0; left: 0; width: 100%; background-color: #FFCA03; padding: 0.3rem;">
+        {{message}}
+    </h5>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div class="container-recipe">
+        <div class="left-profile">
+          <ul>
+            <!-- <li><a href="/"><i class="fas fa-home"></i>  HOME</a ></li> -->
+            <li><a href="/chef_dashboard"><i class="fas fa-chart-line"></i>  DASHBOARD</a></li>
+            <li><a href="/chef_profile"><i class="fas fa-user-circle"></i>  PROFILE</a></li>
+            <li><a href="/add_recipe"><i class="fas fa-chevron-circle-down"></i>  ADD RECIPE</a></li>
+            <li><a href="/chef_message"><i class="fas fa-comments-dollar"></i>  MESSAGE</a></li>
+            <li><a href="/chef_logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a></li>
+        </ul>
+        </div>
+        <div class="main-recipe">
+            <h2 style=" color: #263238; margin-bottom: 1rem;">Welcome, <span style="color: white;">Chef!</span><br>Add Your Recipe Here</h2> <br>
+            <div class="left">
+                <form action="/add_recipe_insert" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="name" placeholder="Recipe Name" autofocus>
+                    <select name="vntype" id="" class="type">
+                        <option value="selecttype" name="vntype">Select Type:</option>
+                        <option value="veg" class="option">Veg</option>
+                        <option value="nonveg" class="option">Non Veg</option>
+                    </select>
+                    <select name="cuisine" id="" class="type" style="margin-top: 1rem;">
+                      <option value="selectcuisine" >Select Cuisine:</option>
+                      <option value="Australian" class="option">Australian</option>
+                      <option value="French" class="option">French</option>
+                      <option value="Indian" class="option">Indian</option>
+                      <option value="Italian" class="option">Italian</option>
+                      <option value="Japanese" class="option">Japanese</option>
+                      <option value="Chinese" class="option">Chinese</option>
+                      <option value="Greek" class="option">Greek</option>
+                      <option value="Spanish" class="option">Spanish</option>
+                      <option value="Turkish" class="option">Turkish</option>
+                  </select>
+                  
+                <textarea placeholder="Ingredient..." name="ingredient" id="" cols="10" rows="5" class="desc1 desc " style="margin-top: 1rem; "></textarea>
+            </div>
+            
+                
+                <div class="right">
+                    <div class="desc"><textarea placeholder="Description..." name="description" id="" cols="10" rows="8"></textarea>
+                    </div>
+                    <h4>Upload Image</h4>
+                    <input type="file" name="photo" value="Upload Pic" style="background: transparent; border: none; width: 12rem;  padding: 0.7rem; color: black;">
+                    <input type="submit" Value="Submit" class="button-recipe">
+                </div>
+                
+            </form>
+
+        </div>
+    </div>
+</body>
+<!-- <script>
+  var close = document.getElementsByClassName("closebtn");
+  var i;
+  
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function(){
+      var div = this.parentElement;
+      div.style.opacity = "0";
+      setTimeout(function(){ div.style.display = "none"; }, 600);
+    }
+  }
+  </script> -->
+</html>  

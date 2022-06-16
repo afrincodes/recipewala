@@ -1,0 +1,24 @@
+
+table {
+    margin-top: 1rem;
+    padding-left: 4rem;
+	width: 1000px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(254, 239, 36, 0.1);
+}
+
+th,
+td {
+	padding: 15px;
+	background-color: rgba(220, 239, 16, 0.2);
+	color: #111;
+}
+
+th {
+	text-align: left;
+}
+
+thead th {
+		background-color: #FFCA03;
+	}

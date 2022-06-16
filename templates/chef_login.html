@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeWala</title>
+    <link rel="icon" href="../static/images/icon.png" type="image/icon type" style="border-radius: 50%;">
+    <link rel="stylesheet" href="../static/css/chef_signup.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <h5 style="color: #070707; position: fixed; top: 0; left: 0; width: 100%; background-color: #FFCA03; padding: 0.3rem;">
+        {{message}}
+    </h5>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+        <div class="container">
+            <div class="main">
+                <div class="second">
+                <h2>Welcome, <span style="color: #FFCA03;">Chef!</span> <br>Login to continue to app</h2>
+                <form action="/chef_login_verify" method="POST">
+                    <input type="email" name="email" placeholder="Email" autofocus>
+                    <input type="password" name="password" placeholder="Password">
+                    <input type="text" name="captcha" placeholder="Enter Captcha">
+                    <img src="../static/images/CAPTCHA.png" width="150px" height="40px" style="margin-left: 1rem;" alt="">
+                    <h5 style="color: red;">{% if(request.args.get('msg')!=None) %} {{request.args.get('msg')}} {% endif %}</h5>
+                    <h5 style="color: red;">{{msg}}</h5>
+                    <input type="submit" value="Login" class="button">
+                    
+                    <div><a href="/chef_signup">Create Account</a></div>
+                </form>
+                
+    
+                </div>
+                
+            </div>
+        </div>
+    
+</body>
+</html>

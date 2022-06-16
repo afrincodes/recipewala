@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeWala</title>
+    <link rel="icon" href="../static/images/icon.png" type="image/icon type">
+    <link rel="stylesheet" href="../static/css/chef_signup.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <h5 style="color: #070707; position: fixed; top: 0; left: 0; width: 100%; background-color: #FFCA03;">
+        {{message}}
+        <div> <a href="\chef_login">Click here to login now</a></div>
+    </h5>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+        <div class="container">
+            <div class="main">
+                <h2>Welcome, <span style="color: #FFCA03;">Chef!</span><br>Signup to continue to app</h2>
+    
+                <form action="/chef_signup_insert" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="name" placeholder="Full Name" autofocus>
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="text" name="mobile" placeholder="Mobile" maxlength="10">
+                    <input type="password" name="password" placeholder="Password">
+                    <input type="text" name="city" placeholder="City">
+                    <input type="text" name="state" placeholder="State">
+                    <input type="file" name="photo" value="Upload Pic" style="background: transparent; border: none; width: 12rem; display: inline; padding: 0.7rem; color: #FFCA03;">
+                    <h4 style="color: #FFCA03; font-size: small; display: inline;">Upload Photo</h4>
+                    
+                    <input type="submit" Value="Submit" class="button">
+                    
+                    <div><a href="/chef_login">Already Account?</a></div>
+                </form>
+    
+            </div>
+        </div>
+    
+</body>
+</html>

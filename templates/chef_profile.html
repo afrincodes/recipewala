@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeWala</title>
+    <link rel="icon" href="../static/images/icon.png" type="image/icon type">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://kit.fontawesome.com/bcdac9a129.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-about">
+        <nav class="navbar">
+          <h2 class="dashboard-h">RecipeWala</h2>
+            <div class="nav">
+            <ul>
+              <li><a href="/chef_dashboard"><i class="fa-solid fa-grid-horizontal"></i></a></li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn" name="name">{{session['name']}} <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                      <a href="/chef_profile">Profile</a>
+                      <a href="/chef_logout">Logout</a>
+                    </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+    <div class="left-profile">
+        <ul>
+            <!-- <li><a href="/"><i class="fas fa-home"></i>  HOME</a ></li> -->
+              <li><a href="/chef_dashboard"><i class="fas fa-chart-line"></i>  DASHBOARD</a></li>
+            <li><a href="/chef_profile"><i class="fas fa-user-circle"></i>  PROFILE</a></li>
+            <li><a href="/add_recipe"><i class="fas fa-chevron-circle-down"></i>  ADD RECIPE</a></li>
+            <li><a href="/chef_message"><i class="fas fa-comments-dollar"></i>  MESSAGE</a></li>
+            <li><a href="/chef_logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a></li>
+        </ul>
+    </div>
+    <div class="right-profile">
+        {% for r in chef_rec %}
+        <div class="profile">
+            <div class="img-profile">
+                <img src="../static/chef/{{r[0]}}" alt="" style="height: 100px; width: 100px; border-radius: 50px; border: 2px solid #263238;">
+            </div>
+            <div class="field">
+                <div class="fieldname">
+                    <span>Name:</span> <br> <br>
+                    <span>Email:</span> <br> <br>
+                    <span>Mobile:</span> <br> <br>
+                    <span>City:</span> <br> <br>
+                    <span>State:</span> 
+                </div>
+                <div class="fielddata">
+                    <span class="data">{{r[1]}}</span> <br> <br>
+                    <span class="data">{{r[2]}}</span> <br> <br>
+                    <span class="data">{{r[3]}}</span> <br> <br>
+                    <span class="data">{{r[4]}}</span> <br> <br>
+                    <span class="data">{{r[5]}}</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="left">
+          <p style="font-size: small; margin-bottom: 1rem;">*click here to change your password</p>
+          <div class="blue"><a href="/chef_password">Change Password</a></div>
+          <p style="font-size: small; margin-bottom: 1rem;">*click here to delete your profile</p> 
+          <a href="/chef_profile_delete"><button class="red">Delete Profile</button></a>
+        </div>
+    </div>
+    
+</body>
+</html>

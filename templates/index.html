@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/images/icon.png" type="image/icon type" style="border-radius: 50%;">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/card.css">
+    <script src="https://kit.fontawesome.com/bcdac9a129.js" crossorigin="anonymous"></script>
+    <title>RecipeWala</title>
+</head>
+<body>
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <h5 style="color: #070707; position: fixed; top: 0; left: 0; width: 100%; background-color: #FFCA03; padding: 0.3rem;">
+        {{message}}
+    </h5>
+    <!-- <span class="closebtn" style="margin-left: 15px; color: black; font-weight: bold; float: right; font-size: 22px; line-height: 20px; cursor: pointer;"></span> -->
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+      <nav class="navbar">
+        <h2>RecipeWala</h2>
+        <a href="#" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <div class="navbarlinks">
+          <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/recipe">RECIPE</a></li>
+            <li><a href="/about">ABOUT</a></li>
+            <li><a href="/contact">CONTACT</a></li>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Login</button>
+                  <div class="dropdown-content">
+                    <a href="/chef_login">Chef</a>
+                    <a href="/user_login">User</a>
+                  </div>
+              </div>
+            </li>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Register Now</button>
+                  <div class="dropdown-content">
+                    <a href="/chef_signup">Chef</a>
+                    <a href="/user_signup">User</a>
+                  </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <section class="box">
+        <div class="detail-box">
+          <h1>
+            More Food Recipes
+          </h1>
+          <p>
+            It's a Open Platform for food lovers. A lot of people upload and share their recipes online by using this Website. Now, its your turn to share your recipes to the world. It is completely free. 
+          </p>
+          <div class="btn-box">
+            <a href="/get_started" class="btn1">
+              Get Started
+            </a>
+          </div>
+        </div>
+      </section>
+  </div>
+
+
+  <div class="container2">
+    <div class="card">
+      <div class="card-header">
+        <img src="../static/images/card1.jpg" alt="" />
+      </div>
+      <div class="card-body">
+        <div class="user">
+          <img src="../static/images/user1.jpg" alt="" />
+          <div class="user-info">
+            <h5>Kunal Kapur</h5>
+            <small>Veg,</small>
+            <small>Indian</small>
+          </div>
+        </div>
+        <h4>Veg Fried Rice Recipe | Veg Pulaw Recipe | Indian Recipes </h4>
+        Ingredients: 
+        <p>
+          1 cup basmati rice
+          1 tsp  oil
+          ½ tsp salt
+          water for soaking & boiling
+          for fried rice:
+          2 tbsp oil
+          2 clove garlic (finely chopped)
+          ½ onion (finely chopped)
+          4 tbsp spring onion (chopped)
+          ¼ carrot (finely chopped)
+          2 tbsp cabbage (finely chopped)
+          2 tbsp peas / matar
+          5 beans (chopped
+        </p>
+        <a href="/user_login" class="more">More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <img src="../static/images/card2.jpg" alt="" />
+      </div>
+      <div class="card-body">
+        <div class="user">
+          <img src="../static/images/user2.jpg" alt="" />
+          <div class="user-info">
+            <h5>Pooja Dhingra</h5>
+            <small>Veg,</small>
+            <small>French</small>
+          </div>
+        </div>
+        <h4>
+           Mcdonald Style Burger Meal Combo Recipe | Burger And French Fries
+        </h4>
+        Ingredients: 
+        <p>
+          1 pound ground lean (7% fat) beef
+          1 large egg
+          ½ cup minced onion
+          ¼ cup fine dried bread crumbs
+          1 tablespoon Worcestershire
+          1 or 2 cloves garlic, peeled and minced
+          About 1/2 teaspoon salt
+          About 1/4 teaspoon pepper
+          4 hamburger buns (4 in. wide), split
+          About 1/4 cup mayonnaise
+          About 1/4 cup ketchup
+          4 iceberg lettuce leaves, rinsed and crisped
+          1 firm-ripe tomato, cored and thinly sliced
+          4 thin slices red onion
+        </p>
+        <a href="/user_login" class="more">More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <img src="../static/images/card3.jpg" alt="" />
+      </div>
+      <div class="card-body">
+        <div class="user">
+          <img src="../static/images/user3.jpg" alt="" />
+          <div class="user-info">
+            <h5>Sanjeev Kapoor</h5>
+            <small>Veg,</small>
+            <small>Indian</small>
+          </div>
+        </div>
+        <h4>Healthy & Tasty Veg Fry Recipe | Indian Food</h4>
+        Ingredients:
+        <p>
+          French beans 1/4 kg stringed and chop into small pieces (par boil with salt and turmeric for 7-8 mts)
+          Pappula podi 2 1/2 tbsps
+          Salt to taste
+          Cooking oil 1/2 tbsp
+          For tempering/poppu/tadka:
+          Mustard seeds 1/2 tsp
+          Dry red chillis 2 de-seed and tear
+          Garlic cloves 1 or 2 crushed
+          Curry leaves a sprig
+        </p>
+        <a href="/user_login" class="more">More</a>
+      </div>
+    </div>
+  </div>
+  <div class="conatct">
+
+    
+  </div>
+  
+
+
+
+
+  <section class="about">
+    <div class="img-box">
+      <img src="../static/images/about-img.png" alt="">
+    </div>
+    <div class="para-box">
+      <h2>
+        We Are RecipeWala
+      </h2>         
+      <p>
+        The purpose of RecipeWala is to spread the skills of people all over the world. It's a Open Platform for food lovers. A lot of people upload and share their recipes online by using this Website. Also, people learn new recipes from each other & beginners learn amazing recipes from experts. It is completely free. 
+      </p>
+      <a href="/about" class="btn-about">Read More</a>    
+    </div>    
+  </section>
+
+  
+  <section class="contact">
+  <form action="">
+    <div class="left">
+    <h2>Contact Us</h2>
+    <div>
+      <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" />
+    </div>
+    <div>
+      <input type="email" name="email" id="email" class="form-control" placeholder="Your Email" />
+    </div>
+    <div><textarea placeholder="Enter Message...." name="message" id="message" cols="30" rows="10"></textarea></div>
+    <div><input type="submit" value="Send" class="btn-about"></div>
+    <!-- <div id="status" class="success">SUCCESS</div> -->
+    </div>
+  </form>
+  <div class="image"><img src="../static/images/contact.png" alt=""></div>
+  </section>
+
+
+  
+  <footer class="footer">
+    <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">RecipeWala</h2>
+    <div class="content">
+      <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/recipe">RECIPE</a></li>
+        <li><a href="/about">ABOUT</a></li>
+        <li><a href="/contact">CONTACT</a></li>
+      </ul>  
+    </div>  
+    <div class="social-media-links">
+        <i class="fab fa-facebook fa-2x"></i>
+        <i class="fab fa-twitter fa-2x"></i>
+        <i class="fab fa-instagram fa-2x"></i>
+    </div>
+    <p>Copyright&copy;2022 All rights reserved | RecipeWala</p>
+  </footer>
+
+</body>
+
+<script>
+  const toggleButton = document.getElementsByClassName('toggle-button')[0]
+  const navbarLinks = document.getElementsByClassName('navbarlinks')[0]
+
+  toggleButton.addEventListener('click', () =>{
+    navbarLinks.classList.toggle('active')
+  });
+</script>
+</html>

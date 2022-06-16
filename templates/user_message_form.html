@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeWala</title>
+    <link rel="icon" href="../static/images/icon.png" type="image/icon type">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://kit.fontawesome.com/bcdac9a129.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-about">
+        <nav class="navbar">
+          <h2 class="dashboard-h">RecipeWala</h2>
+            <div class="nav">
+            <ul>
+              <li><a href="/user_dashboard"><i class="fa-solid fa-grid-horizontal"></i></a></li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn" name="name">{{session['name']}} <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                      <a href="/user_profile">Profile</a>
+                      <a href="/user_logout">Logout</a>
+                    </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <h5 style="color: #070707; position: fixed; top: 0; left: 0; width: 100%; background-color: #FFCA03; padding: 0.3rem;">
+        {{message}}
+    </h5>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+    <div class="left-profile">
+      <ul>
+          <li><a href="/user_dashboard"><i class="fas fa-chart-line"></i>  DASHBOARD</a></li>
+          <li><a href="/user_profile"><i class="fas fa-user-circle"></i>  PROFILE</a></li>
+          <li><a href="/user_recipe"><i class="fas fa-chevron-circle-down"></i>  RECIPES</a></li>
+          <li><a href="/user_message"><i class="fas fa-comments-dollar"></i>  MESSAGE</a></li>
+          <li><a href="/user_logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a></li>
+      </ul>
+  </div>
+  <div class="right-profile" style="padding-left: 300px;">
+    
+      <form action="/user_message_insert?recipe_id={{request.args.get('recipe_id')}}&chef_email={{request.args.get('chef_email')}}" method="POST" enctype="multipart/form-data">
+        <h2 style="margin-bottom: 2rem; ">Type your message here!</h2>
+        <div><textarea placeholder="Enter Message...." name="message" id="" cols="30" rows="15"></textarea></div>
+        <input type="submit" value="Send" class="btn-about" style="margin-left: 0; background-color: aliceblue; color: black; border-color: black;">
+      </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeWala</title>
+    <link rel="icon" href="../static/images/icon.png" type="image/icon type">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://kit.fontawesome.com/bcdac9a129.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-about">
+        <nav class="navbar">
+          <h2>RecipeWala</h2>
+          <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <div class="navbarlinks">
+            <ul>
+              <li><a href="/">HOME</a></li>
+              <li><a href="/recipe">RECIPE</a></li>
+              <li><a href="/about">ABOUT</a></li>
+              <li><a href="/contact">CONTACT</a></li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn">Login</button>
+                    <div class="dropdown-content">
+                      <a href="/chef_login">Chef</a>
+                      <a href="/user_login">User</a>
+                    </div>
+                </div>
+              </li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn">Register Now</button>
+                    <div class="dropdown-content">
+                      <a href="/chef_signup">Chef</a>
+                      <a href="/user_signup">User</a>
+                    </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+
+
+    <section class="contact">
+      <form action="">
+        <div class="left">
+        <h2>Contact Us</h2>
+        <div>
+          <input type="text" name="name" class="form-control" placeholder="Your Name" />
+        </div>
+        <div>
+          <input type="email" name="email" class="form-control" placeholder="Your Email" />
+        </div>
+        <div><textarea placeholder="Enter Message...." name="message" id="" cols="30" rows="10"></textarea></div>
+        <div><input type="submit" value="Send" class="btn-about"></div>
+        </div>
+      </form>
+      <div class="image"><img src="../static/images/contact.png" alt=""></div>
+      </section>
+
+
+
+    <footer class="footer">
+      <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">RecipeWala</h2>
+      <div class="content">
+        <ul>
+          <li><a href="/">HOME</a></li>
+          <li><a href="/recipe">RECIPE</a></li>
+          <li><a href="/about">ABOUT</a></li>
+          <li><a href="/contact">CONTACT</a></li>
+        </ul>  
+      </div>  
+      <div class="social-media-links">
+          <i class="fab fa-facebook fa-2x"></i>
+          <i class="fab fa-twitter fa-2x"></i>
+          <i class="fab fa-instagram fa-2x"></i>
+      </div>
+      <p>Copyright&copy;2022 All rights reserved | RecipeWala</p>
+    </footer>
+</body>
+<script>
+  const toggleButton = document.getElementsByClassName('toggle-button')[0]
+  const navbarLinks = document.getElementsByClassName('navbarlinks')[0]
+
+  toggleButton.addEventListener('click', () =>{
+    navbarLinks.classList.toggle('active')
+  });
+</script>
+</html>

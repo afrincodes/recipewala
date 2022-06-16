@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* ######################## add recipe ####################### */
+.main-recipe textarea{
+    outline: none;
+    border-style: none;
+    background: transparent;
+    width: 450px;
+}
+.main-recipe .desc{
+    border-radius: 25px;
+    background: transparent;
+    background-color: white;
+    border: 1px solid #263238;
+    margin-bottom: 1rem;
+    width: fit-content;
+    color: rgba(70, 68, 68, 0.699);
+}
+.main-recipe .desc1{
+    float: left;
+    width: 80%;
+}
+.main-recipe .type{
+    height: 2.5rem;
+    width: 80%;
+    padding: 0rem 1rem;
+    border-radius: 50px;
+    background-color: white;
+    border: 1px solid #263238;
+    color: rgba(70, 68, 68, 0.699);
+    display: flex;
+    margin-bottom: .5rem;
+}
+.container-recipe{
+    width: 100vw;
+    height: 78vh;
+}
+.main-recipe{
+    float: right;
+    margin-top: 1rem;
+    margin-right: 2rem;
+    height: 70vh;
+    width: 75%;
+    border: 1px solid #26323877;
+    border-radius: 25px;
+    padding: 2rem 3rem;
+    background-color: #FFCA03;
+    float: right;
+}
+.main-recipe input{
+    height: 2.5rem;
+    width: 80%;
+    padding: 0rem 1rem;
+    border-radius: 50px;
+    background-color: white;
+    border: 1px solid #263238;
+    color: rgba(70, 68, 68, 0.699);
+    display: flex;
+    margin-bottom: 1rem;
+}
+.main-recipe .button-recipe{
+    width: 85%;
+    background-color: #263238;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    padding: .3rem 12rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.main-recipe .button-recipe:hover{
+    background-color: #20282c;
+    transform: rotatey(10deg);
+}
+.left{
+    float: left; 
+    width: 50%;
+}
+.right{
+    float: right; 
+    width: 50%;
+}
+h4{
+    margin: 1rem 1rem; 
+    color: #263238;
+}
+
+
+
+/* ############################ media query ###################### */
+@media (max-width: 400px){
+     h2{
+        font-size: small;
+    }
+    .main-recipe .left h4{
+        font-size: small;
+        margin: 0 1rem;
+    }
+    .main-recipe{
+        height: 120vh;
+        width: 100%;
+        float: none;
+    }
+    .main-recipe input{
+        width: 100%;
+        margin-bottom: .5rem;
+    }
+    .main-recipe .button-recipe{
+        width: 200px;
+        padding: 0rem 4rem;
+    }
+    .left{
+        float: none;
+    }
+    /* .desc1{
+        float: none;
+    } */
+    .right{
+        float: none;
+    }
+    .main-recipe .type{
+        width: 100%;
+    }
+    .main-recipe textarea{
+        width: 200px;
+    }
+    .main-recipe .desc{
+        margin-bottom: 1rem;
+    }
+    .main-recipe .desc1{
+        width: 100%;
+    }
+}

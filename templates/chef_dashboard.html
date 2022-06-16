@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeWala</title>
+    <link rel="icon" href="../static/images/icon.png" type="image/icon type">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/table.css">
+    <script src="https://kit.fontawesome.com/bcdac9a129.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-about">
+        <nav class="navbar">
+          <h2 class="dashboard-h">RecipeWala</h2>
+            <div class="nav">
+            <ul>
+              <li><a href="/chef_dashboard"><i class="fa-solid fa-grid-horizontal"></i></a></li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn" name="name">{{session['name']}} <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                      <a href="/chef_profile">Profile</a>
+                      <a href="/chef_logout">Logout</a>
+                    </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+    <div class="left-profile">
+      <ul>
+          <li><a href="/chef_dashboard"><i class="fas fa-chart-line"></i>  DASHBOARD</a></li>
+          <li><a href="/chef_profile"><i class="fas fa-user-circle"></i>  PROFILE</a></li>
+          <li><a href="/add_recipe"><i class="fas fa-chevron-circle-down"></i>  ADD RECIPE</a></li>
+          <li><a href="/chef_message"><i class="fas fa-comments-dollar"></i>  MESSAGE</a></li>
+          <li><a href="/chef_logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a></li>
+      </ul>
+  </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <h5 style="color: #070707; position: fixed; top: 0; left: 0; width: 100%; background-color: #FFCA03; padding: 0.3rem;">
+        {{message}}
+    </h5>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+  <div class="right-profile" style="background-color: white; border: none; padding-top: 0;">
+    <!-- <img src="../static/images/try.jpg"  class="img-dashboard" alt=""> -->
+    <div class="container10" style="margin-left: 1rem;">
+      <h2>Recipe List:</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Cuisine</th>
+            <th>Ingredient</th>
+            <th>Description</th>
+            <th>Photo</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        {% for r in rec %}
+        <tbody>
+          <tr>
+            <td>{{r[1]}}</td>
+            <td>{{r[2]}}</td>
+            <td>{{r[3]}}</td>
+            <td>{{r[4]}}</td>
+            <td>{{r[5]}}</td>
+            <td><img src="../static/chef/{{r[6]}}" alt="" style="height: 50px; width: 50px; border-radius: 50px; border: 2px solid #263238;"></td>
+            <td><a href="/recipe_delete?recipe_id={{r[0]}}"><img src="../static/chef/delete.png" width="20px" height="20px" alt=""></a></td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+</body>
+</html>

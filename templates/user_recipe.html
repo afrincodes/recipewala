@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeWala</title>
+    <link rel="icon" href="../static/images/icon.png" type="image/icon type">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/card.css">
+    <link rel="stylesheet" href="../static/css/search.css">
+    <script src="https://kit.fontawesome.com/bcdac9a129.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-about">
+        <nav class="navbar">
+          <h2 class="dashboard-h">RecipeWala</h2>
+            <div class="nav">
+            <ul>
+              <li><a href="/user_dashboard"><i class="fas fa-chart-line"></i>  DASHBOARD</a></li>
+              <li><a href="/user_profile"><i class="fas fa-user-circle"></i>  PROFILE</a></li>
+              <li><a href="/user_recipe"><i class="fas fa-chevron-circle-down"></i>  RECIPES</a></li>
+              <li><a href="/user_message"><i class="fas fa-comments-dollar"></i>  MESSAGE</a></li>
+              <li><a href="/user_logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a></li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn" name="name">{{session['name']}} <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                      <a href="/user_profile">Profile</a>
+                      <a href="/user_logout">Logout</a>
+                    </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+
+    <!-- <a href="/user_recipe_search" class="btn-start" style="margin: 2rem 40rem;">Click here to search recipe</a> -->
+
+
+  {% for r in user_rec %}
+  <div class="right-dashboard">
+    <div class="container2"  style="margin-top: 1rem;">
+      <div class="card">
+        <div class="card-header">
+          <img src="../static/chef/{{r[3]}}" alt="" />
+        </div>
+        <div class="card-body">
+          <div class="user">
+            <img src="../static/user/{{r[0]}}" alt="" />
+            <div class="user-info">
+              <h5>{{r[1]}}</h5>
+              <small>{{r[4]}},</small>
+              <small>{{r[5]}}</small>
+            </div>
+          </div>
+          <h4>{{r[2]}}</h4>
+          Ingredients:
+          <p>
+            {{r[6]}}
+          </p>
+          <div class="chef_msg"> 
+          <a href="/user_recipe_details?recipe_id={{r[7]}}" class="more">More</a>
+          <a href="/user_message_form?recipe_id={{r[7]}}&chef_email={{r[8]}}" class="more msg">Message</a>
+          
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+
+</body>
+</html>
